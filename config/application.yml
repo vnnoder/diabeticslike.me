@@ -1,0 +1,18 @@
+default: &default
+  hello: hello
+  paypal_merchant_account_email: 'anuj@skybulls.com'
+
+development:
+  <<: *default
+  google_client_id: '771587125701.apps.googleusercontent.com'
+  google_client_secret: 'XPSLHOv8mGi-Mw4cTuvBcM9o'
+  google_refresh_token: '1/x84DqBRlTh3k_umP1xn4T-LLHwSzPAlfa1lRH_H5g-Q'
+  google_api_key: 'AIzaSyBn0Fw6DThGDsnOUrY24d8I1M27JJtbqSA'
+production:
+  <<: *default
+  google_client_id: '771587125701.apps.googleusercontent.com'
+  google_client_secret: 'XPSLHOv8mGi-Mw4cTuvBcM9o'
+  google_refresh_token: '1/x84DqBRlTh3k_umP1xn4T-LLHwSzPAlfa1lRH_H5g-Q'
+  google_api_key: 'AIzaSyBn0Fw6DThGDsnOUrY24d8I1M27JJtbqSA'
+
+

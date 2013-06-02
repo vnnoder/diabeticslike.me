@@ -1,0 +1,23 @@
+jQuery ->
+#  $(".alert-message").alert()
+  #  $(".tabs").button()
+  $(".carousel").carousel()
+  $(".collapse").collapse()
+  $(".dropdown-toggle").dropdown()
+  $(".modal").modal()
+  $("a[rel=popover]").popover()
+  $(".navbar").scrollspy()
+  #  $(".tab").tab('show')
+  $(".typeahead").typeahead()
+  $(".tooltip").tooltip()
+  $("[rel=tooltip]").tooltip()
+  $('.location-field').locationSearchField()
+  $('.disable-enter').disableSubmitByEnter()
+
+#   Bootstarp moon template
+  $('a').tooltip('hide')
+  $('i').tooltip('hide')
+  $('#scrollbar').tinyscrollbar()
+  $('#scrollbar-one').tinyscrollbar()
+  $('#scrollbar-two').tinyscrollbar()
+  $('#scrollbar-three').tinyscrollbar()

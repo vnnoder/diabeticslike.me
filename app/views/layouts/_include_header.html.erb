@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title><%= content_for?(:title) ? yield(:title) : "Diabetes Like Me" %></title>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Diabetes Like Me" %>">
+
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+
+<link href="/icomoon/style.css" rel="stylesheet">
+<!--[if lte IE 7]>
+<script src="/css/icomoon-font/lte-ie7.js">
+</script>
+<![endif]-->
+<link href="/css/wysiwyg/bootstrap-wysihtml5.css" rel="stylesheet">
+<link href="/css/wysiwyg/wysiwyg-color.css" rel="stylesheet">
+<link href="/css/bootstrap-editable.css" rel="stylesheet">
+<link href="/css/select2.css" rel="stylesheet">
+<link href="/css/fullcalendar.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet"> <!-- Important. For Theming change primary-color variable in main.css  -->
+<link href="/css/charts-graphs.css" rel="stylesheet">
+<link href="/css/clockface.css" rel="stylesheet">
+<link href="/css/timepicker.css" rel="stylesheet">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel='stylesheet' type='text/css' href='/css/theme.css' />
+
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+

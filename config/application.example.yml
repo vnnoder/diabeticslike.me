@@ -1,0 +1,7 @@
+default: &default
+  hello: hello
+
+development:
+  <<: *default
+  google_api_key: 'AIzaSyAVDYhAybXXCTR_-s2W9Da2th1DPngqRDE'
+

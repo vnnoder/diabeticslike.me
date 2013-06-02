@@ -1,0 +1,17 @@
+<!-- error, warning, success, info-->
+<div class="row-fluid">
+  <div class="span12">
+    <% flash.each do |ftype, message| %>
+
+        <div class="alert alert-block alert-<%= ftype %> fade in">
+          <button data-dismiss="alert" class="close" type="button">
+            ×
+          </button>
+          <p>
+            <%= message %>
+          </p>
+        </div>
+    <% end %>
+  </div>
+</div>
+

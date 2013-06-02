@@ -1,0 +1,73 @@
+@keyframes loading_dot_blink {
+  0% {opacity: 0.7}
+  100% {opacity: 0.0}
+}
+
+@-webkit-keyframes loading_dot_blink {
+  0% {opacity: 0.7}
+  100% {opacity: 0.0}
+}
+
+@-moz-keyframes loading_dot_blink {
+  0% {opacity: 0.7}
+  100% {opacity: 0.0}
+}
+
+@-o-keyframes loading_dot_blink {
+  0% {opacity: 0.7}
+  100% {opacity: 0.0}
+}
+
+
+header .mini-nav.logged-user li {
+  background: none;
+  border: none;
+}
+
+// Fix form error notice
+.row-fluid.moon-blue {
+  &.error {
+    div {
+      input {
+        margin-bottom: 0;
+      }
+      .help-inline.error {
+        margin-bottom: 3px;
+        color: red;
+      }
+    }
+  }
+}
+
+.red-alert{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: red; opacity: 0.5;  position: absolute; top: 3px; left: 3px;
+  -webkit-animation: loading_dot_blink 2s linear infinite;
+}
+.green-alert{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: green; opacity: 0.5;  position: absolute; top: 3px; left: 3px;
+  -webkit-animation: loading_dot_blink 2s linear infinite;
+}
+
+.stats li {
+  height: 120px;
+}
+
+.stats li .left{
+  float: right;
+  width: 80px;
+  border-right: 0px;
+  margin-right: 0px;
+  margin-left: 10px;
+
+}
+
+.hr-stylish-1 {
+  margin: 15px 0px;
+}
+

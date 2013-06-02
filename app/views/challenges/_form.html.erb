@@ -1,0 +1,16 @@
+<%= simple_form_for(@challenge, :html => {:class => 'form-horizontal'}) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name %>
+    <%= f.input :description, :input_html => {:rows => 3} %>
+    <%= f.input :duration, :input_html => {:class => 'date_picker'} %>
+    <fieldset>
+      <legend>Tasks</legend>
+      <%= f.fields_for :tasks do |task| %>
+          <%= task.input :title %>
+          <%= task.input :due_date %>
+      <% end %>
+    </fieldset>
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'primary-btn' %>
+    </div>
+<% end %>

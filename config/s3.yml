@@ -1,0 +1,13 @@
+development: &development
+  access_key_id: AKIAJLT326H6IHP6AUVA
+  secret_access_key: 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
+  bucket: tournative
+test:
+  <: *development
+
+staging:
+  access_key_id: 123
+  secret_access_key: asaa
+production:
+  access_key_id: 456
+  secret_access_key: 456

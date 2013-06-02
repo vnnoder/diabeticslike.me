@@ -1,0 +1,48 @@
+<div class="user-profile">
+  <a data-toggle="dropdown" class="dropdown-toggle">
+    <% if current_user.facebook_id %>
+        <img src="<%=current_user.image_url%>" alt="Profile-Image">
+    <% else %>
+        <img src="/img/profile1.png" alt="Profile-Image">
+    <% end %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu pull-right">
+    <li>
+      <a href="<%=edit_profile_url%>">
+        <span class="fs1" aria-hidden="true" data-icon=""></span> Edit Profile
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="fs1" aria-hidden="true" data-icon=""></span> Account Settings
+      </a>
+    </li>
+    <li>
+      <a href="#" onclick="invite_fb_friend(); return false">
+        <span class="fs1" aria-hidden="true" data-icon=""></span> Invite Friends
+      </a>
+    </li>
+    <li>
+      <%= link_to '<i class="icon-off"></i> <span>Logout</span>'.html_safe, destroy_user_session_path, :method => :delete %>
+    </li>
+  </ul>
+</div>
+<ul class="mini-nav">
+  <li>
+    <a href="#">
+      <div class="fs1" aria-hidden="true" data-icon="&#xe040;"></div>
+            <span class="info-label">
+              3
+            </span>
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <div class="fs1" aria-hidden="true" data-icon="&#xe04c;"></div>
+            <span class="info-label-green">
+              5
+            </span>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,171 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="thumbnail">
+            <% if current_user.facebook_id %>
+                <img alt="300x200" src="<%=current_user.image_url("width=200&height=300")%>">
+            <% else %>
+                <img alt="300x200" src="/img/profile.png">
+            <% end %>
+
+          </div>
+        </div>
+        <div class="span9">
+          <%= simple_form_for @user, :url => profile_url, :method => :put, :html => {:class => 'form-horizontal'} do |f| %>
+              <h5>
+                Login Information
+              </h5>
+              <hr>
+              <div class="control-group">
+                <label class="control-label">
+                  Email ID
+                </label>
+
+                <div class="controls">
+                  <a href="#" data-type="email"> <%= @user.email %> </a>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  Password
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="password" data-type="password" data-original-title="Click here to edit your password" class="inputText editable editable-click">
+                    ******
+                  </a>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  Confirm Password
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="confirmPassword" data-type="password" data-original-title="Click here to confirm your password" class="inputText editable editable-click">
+                    ******
+                  </a>
+                </div>
+              </div>
+              <br>
+              <h5>
+                Personal Information
+              </h5>
+              <hr>
+              <div class="control-group">
+                <label class="control-label">
+                  First Name
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="firstName" data-name='first_name' data-type="text" data-original-title="Click here to edit your first name" class="inputText editable editable-click">
+                    <%= @user.first_name %>
+                  </a>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  Last Name
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="lastName" data-type="text" data-name='last_name' data-original-title="Click here to edit your last name" class="inputText editable editable-click">
+                    <%= @user.last_name %>
+                  </a>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  Phone Number
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="phone_number" data-type="text" data-name='phone_number' data-original-title="Click here to edit your Phone Number" class="inputAge editable editable-click">
+                    <%= @user.phone_number %>
+                  </a>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  Age
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="age" data-type="select" data-name='age' data-original-title="Click here to edit your age" class="inputAge editable editable-click">
+                    <%= @user.age %>
+                  </a>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">
+                  Diabetes Type
+                </label>
+
+                <div class="controls">
+                  <a href="#" id="diabetes_type" data-name='diabetes_type' data-type="select" data-original-title="Click here to edit your diabetes type" class="editable editable-click">
+                    <%= @user.diabetes_type %>
+                  </a>
+                </div>
+              </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.scrollUp.js"></script>
+<script src="/js/bootstrap-editable.min.js"></script>
+<script src="/js/select2.js"></script>
+
+
+<script type="text/javascript">
+    //ScrollUp
+    $(function () {
+        $.scrollUp({
+            scrollName: 'scrollUp', // Element ID
+            topDistance: '300', // Distance from top before showing element (px)
+            topSpeed: 300, // Speed back to top (ms)
+            animation: 'fade', // Fade, slide, none
+            animationInSpeed: 400, // Animation in speed (ms)
+            animationOutSpeed: 400, // Animation out speed (ms)
+            scrollText: 'Scroll to top', // Text for element
+            activeOverlay: false // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+        });
+    });
+
+    //Tooltip
+    $('a').tooltip('hide');
+
+    //Xeditable form fields
+    $(function () {
+        $('#age').editable({
+            source: '[11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,38,40,41]',
+            send: 'auto',
+            pk: '<%=current_user.id%>',
+            url: '<%=single_update_profile_url%>'
+        });
+        $('#diabetes_type').editable({
+            source: '["Type I", "Type II"]',
+            send: 'auto',
+            pk: '<%=current_user.id%>',
+            url: '<%=single_update_profile_url%>'
+        })
+        $('.editable').editable({
+            send: 'auto',
+            pk: '<%=current_user.id%>',
+            url: '<%=single_update_profile_url%>'
+        });
+
+
+    });
+    //Xeditable form fields end
+</script>

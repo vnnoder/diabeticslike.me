@@ -1,0 +1,2 @@
+module GlucoseDataHelper
+end

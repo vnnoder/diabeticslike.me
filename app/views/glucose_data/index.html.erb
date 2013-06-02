@@ -1,0 +1,22 @@
+<div class="left-sidebar">
+
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="container">
+        <%= simple_form_for(:glucose_datum, :url => import_glucose_data_path, :wrapper => :bootstrap_moon_blue, :html => {:class => 'login-wrapper'}) do |f| %>
+            <div class="content">
+              <%= f.input :glucose_data_file, :as => :file, :placeholder => 'Glucose data', :input_html => {:class => 'span12'} %>
+              <div class="actions">
+                <%= f.button :submit, "Import", :class => 'btn-primary' %>
+              </div>
+
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

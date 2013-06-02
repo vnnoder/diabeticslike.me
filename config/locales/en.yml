@@ -1,0 +1,25 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  dashboard: "DashBoard"
+  my_profile: "My Profile"
+  messages: "Messages"
+  experiences: "Experiences"
+  bookings: "bookings"
+  reviews: "Reviews"
+  connections: "Connections"
+  links:
+    change_your_email_address: "change your email address"
+    request_a_new_confirmation_email: 'request a new confirmation email'
+
+  social:
+    social_network_connection_tab: "Social Networks Connection"
+    facebook:
+      connect_button: "Connect Facebook"
+    twitter:
+      connect_button: "Connect Twitter"
+    linedin:
+      connect_button: "Connect Linkedin"
+    google:
+      connect_button: "Connect Google"

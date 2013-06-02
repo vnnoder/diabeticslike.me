@@ -1,0 +1,487 @@
+<div class="left-sidebar">
+
+
+<!--<div class="row-fluid">-->
+<!--<div class="span12">-->
+<!--<%= simple_form_for(:status, :url => statuses_url, :wrapper => :bootstrap_moon_blue) do |f| %>-->
+    <!--<%= f.input :message %>-->
+    <!--<%= f.submit %>-->
+    <!--
+<% end %>-->
+<!--</div>-->
+<!--</div>-->
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-header">
+        <div class="title">
+          History
+        </div>
+        <span class="tools">
+                    <a class="fs1" aria-hidden="true" data-icon=""></a>
+            </span>
+      </div>
+
+      <div class="widget-body">
+        <span class="tools pull-left offset4" id='add-glucose-datum'>
+			<% if @user.id == current_user.id %>
+            <%= simple_form_for(:glucose_datum, :remote => true, :url => glucose_data_path, :html => {:class => 'form-inline'}) do |f| %>
+            <%= f.input_field :sensor_value, :label => false, :placeholder => 'Glucose Value' %>
+            <%= f.input_field :sensor_time, :label => false, :placeholder => 'Time', :id => 'timepicker3' %>
+            <button type="submit" class="btn-success btn btn-mini">
+              <span class="fs1" aria-hidden="true" data-icon=""></span>
+            </button>
+
+		 <% end %>
+        <% end %>
+        </span>
+        <span class="tools pull-right">
+              <a href="#" class="btn btn-info" data-original-title="">
+                <span class="fs1 icon-white" aria-hidden="true" data-icon=""></span>
+              </a>
+            </span>
+
+        <div class="clearfix"></div>
+        <div id="glucose_chart">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+    <div class="widget">
+      <div class="widget-header">
+        <div class="title">
+          <a id="todo">Friends</a>
+        </div>
+    <span class="tools">
+        <a class="fs1" aria-hidden="true" data-icon="&#xe090;"></a>
+    </span>
+      </div>
+      <div class="widget-body">
+        <div id="gallery">
+          <% 18.times.each do |i| %>
+              <a class="thumbnail-img small" href="/profile/public/<%=i+1%>" data-original-title="Sriracha Tiger Zoo">
+                <%#=  link_to image_tag("/img/profileimages/#{i+1}.jpeg"), public_url(i+1) %>
+                <img src="/img/profileimages/<%= i+1 %>.jpeg" alt="Image" image-id='<%=i+1%>'>
+                <% if [1, 14, 15].include?(i) %>
+                    <div class="red-alert"></div>
+                <% end %>
+                <% if [6, 10, 12, 9, 2].include?(i) %>
+                    <div class="green-alert"></div>
+                <% end %>
+              </a>
+          <% end %>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="span6">
+    <div class="widget">
+      <div class="widget-header">
+        <div class="title">
+          Tweets
+        </div>
+                    <span class="tools">
+                      <a class="fs1" aria-hidden="true" data-icon="&#xe090;"></a>
+                    </span>
+      </div>
+      <div class="widget-body">
+
+        <div class="message-container">
+          <a class="twitter-timeline" href="https://twitter.com/DiabeticsLIKEme" data-widget-id="335646801522720768">Tweets
+            by @DiabeticsLIKEme</a>
+          <script>!function (d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+              if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + "://platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+              }
+          }(document, "script", "twitter-wjs");</script>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row-fluid">
+<div class="span12">
+<div class="widget">
+<div class="widget-header">
+  <div class="title">
+    Chat<a id="chats">s</a>
+  </div>
+                    <span class="tools">
+                      <a class="fs1" aria-hidden="true" data-icon="&#xe090;"></a>
+                    </span>
+</div>
+<div class="widget-body">
+<div id="scrollbar-three">
+<div class="scrollbar">
+  <div class="track">
+    <div class="thumb">
+      <div class="end">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="viewport">
+<div class="overview">
+<ul class="chats">
+
+<li class="out">
+  <img class="avatar" alt="" src="/img/profileimages/17.jpeg">
+
+  <div class="message">
+                                <span class="arrow">
+                                </span>
+    <a href="#" class="name">
+      Naani
+    </a>
+                                <span class="date-time">
+                                  at Feb 10, 2013 09:32
+                                </span>
+                                <span class="body">
+                                  Sounds fun. How about we build something for diabetics to share their readings if they're willing to. And let them create challenges and compete with their friends. That would keep everyone motivated!
+                                </span>
+  </div>
+</li>
+<li class="in">
+  <img class="avatar" alt="" src="/img/profile.jpg">
+
+  <div class="message">
+                                <span class="arrow">
+                                </span>
+    <a href="#" class="name">
+      Kelly
+    </a>
+                                <span class="date-time">
+                                  at Feb 8, 2013 04:21
+                                </span>
+                                <span class="body">
+                                  Yeah sure. That would be cool. I have an awesome idea. Let's build something social that can help diabetics find their friends that also have diabetics. Do you know that Singapore has a rate of 11% diabetes. That means if you have 300 friends in Facebook, you can find 33 friends with diabetes.
+                                </span>
+  </div>
+</li>
+<li class="out">
+  <img class="avatar" alt="" src="/img/profileimages/17.jpeg">
+
+  <div class="message">
+                                <span class="arrow">
+                                </span>
+    <a href="#" class="name">
+      Hehe
+    </a>
+                                <span class="date-time">
+                                  at Jan 29, 2013 08:10
+                                </span>
+                                <span class="body">
+                                  I heard there is an upcoming Hackathon for Healthcare in Singapore in May. Do you want to join? The main theme is about fighting diabetes.
+                                </span>
+  </div>
+</li>
+<li class="in">
+  <img class="avatar" alt="" src="/img/profile.jpg">
+
+  <div class="message">
+                                <span class="arrow">
+                                </span>
+    <a href="#" class="name">
+      Bulley
+    </a>
+                                <span class="date-time">
+                                  at jan 14, 2013 06:43
+                                </span>
+                                <span class="body">
+                                  Tight pants next level keffiyeh you probably haven't heard of fixie sustainable quinoa 8-bit american apparel have a terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats.
+                                </span>
+  </div>
+</li>
+
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="right-sidebar">
+
+<div class="wrapper featured-articles-container">
+
+  <ul class="stats">
+    <li>
+      <div class="left">
+        <h4>
+          <%= @average %>
+        </h4>
+
+        <p>
+          Glucose Average
+        </p>
+      </div>
+      <div id="glucose_gauge_average">
+
+      </div>
+    </li>
+    <li>
+      <div class="left">
+        <h4>
+          <%= @variance %>
+        </h4>
+
+        <p>
+          Glucose Variance
+        </p>
+      </div>
+      <div id="glucose_gauge_variance">
+
+      </div>
+    </li>
+
+  </ul>
+</div>
+
+<hr class="hr-stylish-1">
+
+
+<div class="wrapper">
+<div id="scrollbar">
+<div class="scrollbar">
+  <div class="track">
+    <div class="thumb">
+      <div class="end">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="viewport">
+<div class="overview">
+<div class="featured-articles-container">
+<h5 class="heading">
+  Recent Challenge Events
+</h5>
+
+<div class="articles">
+<a href="#">
+                          <span class="label-bullet">
+                            &nbsp;
+                          </span>
+  Vegetarian Dinner
+</a>
+<a href="#">
+                          <span class="label-bullet">
+                            &nbsp;
+                          </span>
+  Beat Eugene's glucose average reading
+</a>
+<a href="#">
+                          <span class="label-bullet">
+                            &nbsp;
+                          </span>
+  15 Minutes Morning Exercise
+</a>
+<a href="#">
+                          <span class="label-bullet">
+                            &nbsp;
+                          </span>
+  No snack month
+</a>
+
+<a href="#">
+                          <span class="label-bullet">
+                            &nbsp;
+                          </span>
+  "Take the staircase" week
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+<script src="/js/wysiwyg/wysihtml5-0.3.0.js">
+</script>
+<script src="/js/jquery.min.js">
+</script>
+<script src="/js/bootstrap.js">
+</script>
+<script src="/js/wysiwyg/bootstrap-wysihtml5.js">
+</script>
+<script src="/js/jquery.scrollUp.js">
+</script>
+
+
+
+
+<!-- Google Visualization JS -->
+<script type="text/javascript" src="https://www.google.com/jsapi">
+</script>
+
+<!-- Easy Pie Chart JS -->
+<script src="/js/jquery.easy-pie-chart.js">
+</script>
+
+<!-- Sparkline JS -->
+<script src="/js/jquery.sparkline.js">
+</script>
+
+<!-- Tiny Scrollbar JS -->
+<script src="/js/tiny-scrollbar.js">
+</script>
+<script type="text/javascript" src="/js/clockface.js">
+</script>
+<script type="text/javascript" src="/js/bootstrap-timepicker.js"></script>
+
+
+<script type="text/javascript">
+    //ScrollUp
+    $(function () {
+        $.scrollUp({
+            scrollName: 'scrollUp', // Element ID
+            topDistance: '300', // Distance from top before showing element (px)
+            topSpeed: 300, // Speed back to top (ms)
+            animation: 'fade', // Fade, slide, none
+            animationInSpeed: 400, // Animation in speed (ms)
+            animationOutSpeed: 400, // Animation out speed (ms)
+            scrollText: 'Scroll to top', // Text for element
+            activeOverlay: false // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+        });
+    });
+
+
+    // SparkLine Graphs-Charts
+    $(function () {
+        $('#unique-visitors').sparkline('html', {
+            type: 'bar',
+            barColor: '#ed6d49',
+            barWidth: 6,
+            height: 30
+        });
+        $('#monthly-sales').sparkline('html', {
+            type: 'bar',
+            barColor: '#74b749',
+            barWidth: 6,
+            height: 30
+        });
+        $('#current-balance').sparkline('html', {
+            type: 'bar',
+            barColor: '#ffb400',
+            barWidth: 6,
+            height: 30
+        });
+        $('#registrations').sparkline('html', {
+            type: 'bar',
+            barColor: '#0daed3',
+            barWidth: 6,
+            height: 30
+        });
+        $('#site-visits').sparkline('html', {
+            type: 'bar',
+            barColor: '#f63131',
+            barWidth: 6,
+            height: 30
+        });
+    });
+
+    //wysihtml5
+    $('#wysiwyg').wysihtml5();
+
+
+    var userGlucoseData = <%=raw(@user.get_glucose_data().to_json)%>;
+    var currentUserGlucoseData = <%=raw(current_user.get_glucose_data().to_json)%>;
+    //displaying chart
+    google.load("visualization", "1", {packages:["corechart", "gauge"]});
+
+    google.setOnLoadCallback(drawChart);
+
+
+
+    var average = <%= @average %>;
+    var variance = <%= @variance %>;
+    google.setOnLoadCallback(drawGaugeAverage);
+    google.setOnLoadCallback(drawGaugeVariance);
+
+
+
+
+
+    function buildTodayData(userGlucoseData, currentUserGlucoseData){
+        var data = new google.visualization.DataTable();
+        data.addColumn('datetime', 'Time');
+        data.addColumn('number', 'You');
+        <% if @user.id != current_user.id %>
+            data.addColumn('number', 'Your Friend');
+        <% end %>
+
+        for (i = 0; i< currentUserGlucoseData.length; i++){
+            var datum = currentUserGlucoseData[i];
+            var pattern = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/
+            var match = datum.sensor_time.match(pattern);
+
+            var sensorTime = new Date(match[1],match[2],match[3],match[4],match[5],match[6]);
+            <% if @user.id != current_user.id %>
+                data.addRow([sensorTime,datum.sensor_value,null]);
+            <% else %>
+            data.addRow([sensorTime,datum.sensor_value]);
+            <% end %>
+        }
+
+        <% if @user.id != current_user.id %>
+        for (i = 0; i< userGlucoseData.length; i++){
+            var datum = userGlucoseData[i];
+            var pattern = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z/
+            var match = datum.sensor_time.match(pattern);
+
+            var sensorTime = new Date(match[1],match[2],match[3],match[4],match[5],match[6]);
+
+            <% if @user.id != current_user.id %>
+                data.addRow([sensorTime,null,datum.sensor_value]);
+            <% else %>
+                data.addRow([sensorTime,datum.sensor_value]);
+            <% end %>
+
+        }
+        <% end %>
+
+        return data;
+    }
+
+
+    if ($('#timepicker3').length >= 1) {
+        $('#timepicker3').timepicker({
+            minuteStep: 5,
+            secondStep: 30,
+            showInputs: false,
+            showSeconds: true,
+            showMeridian: false
+        });
+    }
+
+    $('img[image-id]').imagePulicProfile();
+
+</script>

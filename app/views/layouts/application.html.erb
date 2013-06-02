@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <%= render :partial => 'layouts/include_header' %>
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+</head>
+<body>
+<%= render :partial => 'shared/header_bar' %>
+<div class="container-fluid">
+  <div class="dashboard-container">
+    <% if signed_in? %>
+        <%= render :partial => 'shared/top_nav' %>
+    <% end %>
+
+    <div class="dashboard-wrapper">
+      <%= render :partial => 'shared/notificaition' if !flash.empty? %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<%= render :partial => 'shared/footer_and_js' %>
+<% if signed_in? %>
+
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js">
+    </script>
+    <script>
+        FB.init({
+            appId: '525510040818134', cookie: true,
+            status: true, xfbml: true
+        });
+        $('.date_picker').daterangepicker();
+    </script>
+<% end %>
+</body>
+</html>

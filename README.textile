@@ -1,0 +1,59 @@
+h1. *Tour-Native*
+
+h2. Getting Started
+
+h3. Setup
+# Install Ruby version 1.9.3-p362
+# Install Rails version 3.2.11
+# Install MySql server
+# Install MongoDB server
+# Copy configuration files
+** @cp config/application.example.yml config/application.yml@
+** @cp config/database.example.yml config/database.yml@
+** @cp config/mongo.example.yml config/mongo.yml@
+** @cp config/s3.example.yml config/s3.yml@
+# Run bundle install to install necessary gems.
+# Create database
+** @rake db:create@
+** @rake db:migrate@
+# Seed data
+** @rake db:seed@
+# Setup domain for local
+** Add @127.0.0.1 tournative-local.com@ to @/etc/hosts@ file
+# Run Application
+** Go to application folder
+** Run @rails s@
+** Go to Browser open "tournative-local.com:3000":http://tournative-local.com:3000
+
+b. Note:
+* install linecache19 for development environment: http://rubyforge.org/frs/download.php/75414/linecache19﻿-0.5.13﻿.﻿﻿gem
+
+h2. Documentation and Support
+
+h3. Development
+* Template Engine: ERB
+* Testing Framework: RSpec and Factory Girl
+* Front-end Framework: Twitter Bootstrap (Sass)
+* Form Builder: SimpleForm
+* Authentication: Devise
+* Authorization: CanCan
+* Image Processing: Paperclip
+* Friendly url: friendly_id
+* Storage static: aws-sdk (s3)
+* Server: Thin
+
+h3. Database
+* Tournative use Mysql database with ActiveRecord
+
+h3. Code convention
+* CSS code
+** class: use dash (-)
+** id: use underscore(_)
+* Javascript:
+** Function: doSomething
+** Variable: userName
+* Ruby
+** Function/Method/variables: use underscore(_)
+
+
+

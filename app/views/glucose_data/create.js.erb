@@ -1,0 +1,4 @@
+var currentUserGlucoseData = <%=raw(current_user.get_glucose_data().to_json)%>;
+drawChart();
+$("#glucose_datum_sensor_value").val('')
+$("#timepicker3").val('')
